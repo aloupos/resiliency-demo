@@ -57,8 +57,20 @@ def balance():
 
 
 if __name__ == "__main__":
-    auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
-    cluster = Cluster(auth_provider=auth_provider)
+
+    # auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
+    # cluster = Cluster(auth_provider=auth_provider)
+    connt = []
+
+    #contstruct a tuple of host/port
+    for k,v in conf['DATABASE']['CONNECTIONS'].items():
+        connt.append((v['host'],v['port']))
+
+    # auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
+    # cluster = Cluster(auth_provider=auth_provider)
+    auth_provider = PlainTextAuthProvider(username=conf['DATABASE']['USERNAME'], password=conf['DATABASE']['PASSWORD'])
+    cluster = Cluster(connt,auth_provider=auth_provider)
+
     session = cluster.connect()
     session.row_factory = ordered_dict_factory
     session.set_keyspace('demo')

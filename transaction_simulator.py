@@ -4,7 +4,9 @@ import sys
 import time
 import random
 from datetime import datetime
+import config
 
+conf = config.get_config()
 
 
 def insert_transaction(ct):
@@ -48,8 +50,17 @@ def insert_transaction(ct):
     print ('INSERT INTO demo.transactions (id, account_id,date,type,debit_amount,debit_type,credit_amount,credit_type,merchant,description) VALUES (%s,%s,\'%s\',%s,%s,%s,%s,%s,\'%s\',\'%s\')' % (id, account_id, timestamp, type,debit_amt,debit_type,credit_amount,credit_type,merchant,description))
 
 if __name__ == "__main__":
-    auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
-    cluster = Cluster(auth_provider=auth_provider)
+    connt = []
+
+    #contstruct a tuple of host/port
+    for k,v in conf['DATABASE']['CONNECTIONS'].items():
+        connt.append((v['host'],v['port']))
+
+    # auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
+    # cluster = Cluster(auth_provider=auth_provider)
+    auth_provider = PlainTextAuthProvider(username=conf['DATABASE']['USERNAME'], password=conf['DATABASE']['PASSWORD'])
+    cluster = Cluster(connt,auth_provider=auth_provider)
+
     session = cluster.connect()
     account_id = 2 # hard coded account holder
     debit_merchants = [
