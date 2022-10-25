@@ -9,4 +9,4 @@ RUN pip3 --no-cache-dir install -r requirements.txt
 
 
 ENTRYPOINT ["python3"]
-CMD ["test.py"]
+CMD ["transaction_simulator.py"]

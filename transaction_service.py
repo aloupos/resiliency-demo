@@ -16,7 +16,7 @@ import json
 from decimal import *
 from datetime import datetime
 logging.getLogger('flask_cors').level = logging.DEBUG
-
+import config
 
 class DecimalEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -57,7 +57,7 @@ def balance():
 
 
 if __name__ == "__main__":
-
+    conf = config.get_config()
     # auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
     # cluster = Cluster(auth_provider=auth_provider)
     connt = []
