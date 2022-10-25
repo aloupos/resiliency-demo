@@ -8,7 +8,7 @@ DATABASE:
   PASSWORD: Demo123!
   CONNECTIONS:
     db1:
-      host: cassandra-pods
+      host: cassandra-pods.cass.svc.cluster.local
       port: 9042
     db2:
       host: 127.0.0.1
