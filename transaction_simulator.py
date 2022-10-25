@@ -17,7 +17,7 @@ def insert_transaction(ct):
         print ("Inserting debit transaction",ct)
 
         # debit transaction
-        timestamp = datetime.now()
+        timestamp = datetime.now().isoformat(timespec='milliseconds')
         type = 0
 
         debit_amt = round(random.uniform(0.01, 9.99), 2)
@@ -30,7 +30,8 @@ def insert_transaction(ct):
     else:
         # credit transaction
         print ("Inserting credit transaction")
-        timestamp = datetime.now()
+        timestamp = datetime.now().isoformat(timespec='milliseconds')
+
         type = 0
         #credit_amount = 7000
         credit_amount = round(random.uniform(300.00, 1500.00), 2)
