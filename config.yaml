@@ -8,8 +8,8 @@ DATABASE:
   PASSWORD: Demo123!
   CONNECTIONS:
     db1:
-      host: 127.0.0.1
-      port: 9052
+      host: cassandra-pods
+      port: 9042
     db2:
       host: 127.0.0.1
       port: 9042
