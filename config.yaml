@@ -1,0 +1,15 @@
+APP:
+  ENVIRONMENT: test
+  DEBUG: True
+  # Only accept True or False
+
+DATABASE:
+  USERNAME: demo
+  PASSWORD: Demo123!
+  CONNECTIONS:
+    db1:
+      host: 127.0.0.1
+      port: 9052
+    db2:
+      host: 127.0.0.1
+      port: 9042
