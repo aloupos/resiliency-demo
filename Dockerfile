@@ -9,4 +9,5 @@ RUN pip3 --no-cache-dir install -r requirements.txt
 
 
 ENTRYPOINT ["python3"]
-CMD ["transaction_simulator.py"]
+CMD ["transaction_service.py"]
+EXPOSE 5000
