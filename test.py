@@ -16,6 +16,7 @@ cluster = Cluster(connt,auth_provider=auth_provider)
 
 try:
     session = cluster.connect()
+
 except:
     pass
 try:
@@ -24,5 +25,7 @@ except:
     pass
 while True:
     time.sleep(5)
+    print (cluster.contact_points)
+    print(session.execute("SELECT release_version FROM system.local").one())
 #session.set_keyspace('demo')
 #print(session.execute("SELECT * from customers").one())
