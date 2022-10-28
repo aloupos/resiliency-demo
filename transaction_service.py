@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request
 import logging
 import json
+import collections
 from flask_cors import CORS
 app = Flask(__name__)
 
@@ -47,11 +48,11 @@ def balance():
     # print (q[0])
     res = []
     for row in q:
-        b = session.execute ('select account_id,sum(credit_amount) as credits, sum(debit_amount) as debits, sum(credit_amount) - sum(debit_amount) as balance from demo.transactions where account_id = %s;' % row['id']).all()
+        b = session.execute ('select account_id,sum(credit_amount) as credits, sum(debit_amount) as debits from demo.transactions where account_id = %s;' % row['id']).all()
         b[0].update (session.execute ('select product_name from demo.account_type where id = %s' % row['account_type_id']).all()[0])
+        bal = (b[0]['credits'] - b[0]['debits'])
+        b[0].update (collections.OrderedDict([('balance',bal)]))
         res.append (b[0])
-        # res.append(json.dumps(b[0], indent=4, cls=DecimalEncoder))
-        print (res)
     return (res)
 
 
