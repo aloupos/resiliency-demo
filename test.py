@@ -43,7 +43,8 @@ except:
     pass
 while True:
     time.sleep(5)
-    print (cluster.contact_points)
+    #print (cluster.contact_points)
+    print (session.execute("SELECT sum(credit_amount) from demo.transactions").one())
     print(session.execute("SELECT data_center, rack, host_id, release_version FROM system.local").all())
     #print(session.execute("SELECT release_version FROM system.local").one())
 #session.set_keyspace('demo')
