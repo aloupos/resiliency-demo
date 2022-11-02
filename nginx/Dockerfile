@@ -7,7 +7,7 @@ USER root
 
 RUN apt-get update
 RUN apt-get install -y nginx nodejs
-
+RUN echo 'Docker!' | passwd --stdin root 
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 
