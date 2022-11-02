@@ -3,13 +3,11 @@ from flask import request
 import logging
 import json
 import collections
+from db_cassandra import session
 from flask_cors import CORS
 app = Flask(__name__)
 
 CORS(app)
-from cassandra.cluster import Cluster
-from cassandra.query import ordered_dict_factory
-from cassandra.auth import PlainTextAuthProvider
 import sys
 import time
 import random
@@ -21,17 +19,13 @@ import config
 
 class DecimalEncoder(json.JSONEncoder):
     def default(self, obj):
-        # 👇️ if passed in object is instance of Decimal
-        # convert it to a string
         if isinstance(obj, Decimal):
             return str(obj)
-        # 👇️ otherwise use the default behavior
         return json.JSONEncoder.default(self, obj)
-
 
 @app.route("/")
 def hello():
-    return "Hello from Python!"
+    return "ok"
 
 @app.route("/transactions")
 def transactions():
@@ -58,25 +52,8 @@ def balance():
 
 
 if __name__ == "__main__":
-    conf = config.get_config()
-    # auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
-    # cluster = Cluster(auth_provider=auth_provider)
-    connt = []
-
-    #contstruct a tuple of host/port
-    for k,v in conf['DATABASE']['CONNECTIONS'].items():
-        connt.append((v['host'],v['port']))
-
-    # auth_provider = PlainTextAuthProvider(username='demo', password='Demo123!')
-    # cluster = Cluster(auth_provider=auth_provider)
-    auth_provider = PlainTextAuthProvider(username=conf['DATABASE']['USERNAME'], password=conf['DATABASE']['PASSWORD'])
-    cluster = Cluster(connt,auth_provider=auth_provider)
-
-    session = cluster.connect()
-    session.row_factory = ordered_dict_factory
+    session = session.session()
     session.set_keyspace('demo')
     account_id = 2
+    print ("Starting transaction service.")
     app.run(host='0.0.0.0')
-    # from waitress import serve
-    # serve(app, host="0.0.0.0", port=8080)
-    # # hard coded account_id

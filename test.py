@@ -11,7 +11,6 @@ connt = []
 for k,v in conf['DATABASE']['CONNECTIONS'].items():
     connt.append((v['host'],v['port']))
 
-#print (connt)
 # code from Rajesh
 class K8SAddressTranslator(AddressTranslator):
 
