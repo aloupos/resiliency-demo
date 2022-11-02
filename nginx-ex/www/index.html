@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Anthony Loupos ">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Newbank</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/starter-template/">
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+
+
+  <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Transactions</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Loans</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Transfers</a></li>
+        </ul>
+
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+
+
+    <h1>Your accounts</h1>
+
+
+
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2 id="acct_name"></h2>
+          <p id="acct_balance"></p>
+          <button id='transactions1' class="btn btn-outline-light" type="button">View Transactions</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2 id="acct2_name"></h2>
+          <p id="acct2_balance"></p>
+          <button id='transactions2' class="btn btn-outline-secondary" type="button">View Transactrions</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <p class="fs-5 col-lg-12" style="padding-left:5px">Pending transactions might effect availability of funds.</p>
+
+    <hr class="col-lg-12 col-md-2 mb-5">
+
+    <div class="row g-5" >
+        <div class="col-md-12" id="viewpane">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>What would you like to do today?</h2>
+
+            <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+    IBM Banking and Financial Markets &middot; &copy; 2022
+  </footer>
+</div>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/dist/js/jquery.min.js"></script>
+    <script src="../assets/dist/js/newbank.js"></script>
+
+
+  </body>
+</html>
