@@ -1,7 +1,7 @@
 #
 # Dockerfile for UI
 #
-FROM nginx:latest
+FROM nginxinc/nginx-unprivileged 
 
 ADD www /usr/share/nginx/html/
 ADD www /var/www/html/
