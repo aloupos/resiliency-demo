@@ -4,10 +4,10 @@
 FROM ubuntu:latest
 
 USER root
-
+RUN echo 'root:Docker!' | chpasswd
 RUN apt-get update
 RUN apt-get install -y nginx nodejs
-RUN echo 'root:Docker!' | chpasswd
+
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 
