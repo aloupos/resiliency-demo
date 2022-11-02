@@ -1,7 +1,7 @@
 #
 # Dockerfile for UI
 #
-FROM nginx
+FROM nginx:latest
 
 ADD www /usr/share/nginx/html/
 ADD www /var/www/html/
