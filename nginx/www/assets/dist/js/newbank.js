@@ -7,7 +7,7 @@ function fillBalances (bdata) {
 }
 $("button").click(function(e){
     var btnid = e.target.id;
-    url = 'http://localhost:5000/transactions'
+    url = 'http://52.116.206.161:5000/transactions'
     if (btnid == 'transactions1') {
       params = {account_id: 1}
     }
@@ -55,7 +55,7 @@ $("button").click(function(e){
 $( document ).ready(function() {
     console.log( "ready!" );
   $.ajax({
-  url: 'http://localhost:5000/balance',
+  url: 'http://52.116.206.161:5000/balance',
   type: "GET",
   dataType: "json",
   complete: function (data_response) {
